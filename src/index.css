@@ -126,42 +126,7 @@ button:active, a.bg-primary:active {
   transform: scale(0.98) !important;
 }
 
-/* 5. Entrance Animations: Scroll-Driven Staggered Reveal (Modern 2026 CSS) */
-@supports (animation-timeline: view()) {
-  section > .container {
-    animation: fade-in-up linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-  }
-
-  /* Stagger effect for children cards */
-  .grid > div {
-    animation: scale-up linear both;
-    animation-timeline: view();
-    animation-range: entry 5% cover 25%;
-  }
-}
-
-@keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(60px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scale-up {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-/* Fallback for browsers not supporting animation-timeline */
-@supports not (animation-timeline: view()) {
-  .container {
-    animation: fadeInUpFallback 1s cubic-bezier(0.25, 1, 0.3, 1) forwards;
-  }
-  @keyframes fadeInUpFallback {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-}
+/* 5. Entrance Animations - Removed scroll-driven transparency to ensure perfect visibility as per user request */
 
 /* Mobile-first section spacing */
 section { 
