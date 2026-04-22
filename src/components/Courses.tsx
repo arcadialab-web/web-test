@@ -9,11 +9,11 @@ export default function Courses() {
               Foundations & Expansion
             </p>
             <p className="text-on-surface-variant mt-2">
-              Due appuntamenti settimanali, un unico percorso. Le lezioni dialogano tra loro — una radica, l'altra espande. Entrambe multilivello, adatte ad ogni praticante.
+              Due appuntamenti settimanali, un unico percorso. Le lezioni dialogano tra loro — una radica, l'altra espande. Entrambe adatte a tutti, adatte ad ogni praticante.
             </p>
           </div>
           <div className="pb-2 text-right">
-            <span className="text-primary font-label tracking-widest uppercase text-xs block mb-1">Lezioni multilivello</span>
+            <span className="text-primary font-label tracking-widest uppercase text-xs block mb-1">Lezioni adatte a tutti</span>
             <span className="text-xs text-on-surface-variant">Non serve esperienza per iniziare</span>
           </div>
         </div>
@@ -24,7 +24,7 @@ export default function Courses() {
                 <h3 className="text-3xl font-serif mb-2">Foundations</h3>
                 <span className="text-primary font-label tracking-wider text-sm uppercase">Martedì • 19:30 — 20:30</span>
               </div>
-              <span className="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase">Multilevel</span>
+              <span className="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary">Adatto a tutti</span>
             </div>
             <p className="text-on-surface-variant mb-10 leading-relaxed flex-grow">
               Una pratica fluida e accessibile, ideale per chi è agli inizi o desidera ritrovare le fondamenta. L'attenzione agli allineamenti costruisce una base solida e consapevole.
@@ -39,7 +39,7 @@ export default function Courses() {
                 <h3 className="text-3xl font-serif mb-2">Expansion</h3>
                 <span className="text-primary font-label tracking-wider text-sm uppercase">Giovedì • 19:00 — 20:00</span>
               </div>
-              <span className="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase">Multilevel</span>
+              <span className="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary">Adatto a tutti</span>
             </div>
             <p className="text-on-surface-variant mb-10 leading-relaxed flex-grow">
               Una pratica dinamica e creativa che riprende e sviluppa il lavoro del martedì. Aperta a tutti i livelli, per chi vuole esplorare con curiosità e apertura.

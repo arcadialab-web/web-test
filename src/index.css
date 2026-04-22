@@ -78,13 +78,23 @@ nav.fixed {
   width: calc(100% - 32px) !important;
   max-width: 1400px !important;
   border-radius: 32px;
-  background: rgba(253, 251, 247, 0.6) !important;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.6);
   padding-top: 12px !important;
   padding-bottom: 12px !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Mobile-specific adjustments for the fixed nav */
+@media (max-width: 768px) {
+  nav.fixed {
+    top: 8px !important;
+    width: calc(100% - 16px) !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
 }
 
 /* Override inner padding for the floating nav container */
@@ -116,36 +126,53 @@ button:active, a.bg-primary:active {
   transform: scale(0.98) !important;
 }
 
-/* 5. Entrance Animations: Scroll-Driven Fade-in-Up (Modern 2026 CSS) */
+/* 5. Entrance Animations: Scroll-Driven Staggered Reveal (Modern 2026 CSS) */
 @supports (animation-timeline: view()) {
   section > .container {
     animation: fade-in-up linear both;
     animation-timeline: view();
-    animation-range: entry 5% cover 30%;
+    animation-range: entry 10% cover 40%;
+  }
+
+  /* Stagger effect for children cards */
+  .grid > div {
+    animation: scale-up linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 25%;
   }
 }
 
 @keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(80px);
-    filter: blur(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-up {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 /* Fallback for browsers not supporting animation-timeline */
 @supports not (animation-timeline: view()) {
   .container {
-    animation: fadeInUpFallback 1.2s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+    animation: fadeInUpFallback 1s cubic-bezier(0.25, 1, 0.3, 1) forwards;
   }
   @keyframes fadeInUpFallback {
-    from { opacity: 0; transform: translateY(40px); filter: blur(4px); }
-    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Mobile-first section spacing */
+section { 
+  padding-top: clamp(4rem, 8vw, 10rem) !important; 
+  padding-bottom: clamp(4rem, 8vw, 10rem) !important; 
+}
+
+@media (max-width: 640px) {
+  section { 
+    padding-top: 3.5rem !important; 
+    padding-bottom: 3.5rem !important; 
   }
 }
 
