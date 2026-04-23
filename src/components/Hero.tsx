@@ -23,7 +23,8 @@ export default function Hero() {
             <img
               alt="Yoga Session"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhWA1kkbvmj0krFb6kRUYIQ1YjK3fwzFnQE5aZr6rR_wd_5RDoxpH5oeT8h2GhKiy-XFWpPqpVg7RrXRnvRe-rPjdhQFHZYlqM_MewtIAjwn75kUXGVxta-HekrPAJcyNEYi0xvGmD7sQI_n2ea2qikZFL6_TifdtYMKGUwF0LQh4KFuac22eXIJLwXSDBispSDypJTN3AiIAx0Bz5QlVgH_4wtihr9hxrwGUKgga-icE57KD_vPz8BscoP9UhlEWbfSmEPUhPGEDi"
+              src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/sign/Foto%20sito/WhatsApp%20Image%202026-04-15%20at%2015.49.11.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NzE2NTYwMS0yY2YzLTQzODUtOGE1Ni04ODdkZDI3MGY0OTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb3RvIHNpdG8vV2hhdHNBcHAgSW1hZ2UgMjAyNi0wNC0xNSBhdCAxNS40OS4xMS5qcGVnIiwiaWF0IjoxNzc2OTY1MTE3LCJleHAiOjE5MzQ2NDUxMTd9.NX_B1I1shHDiTgbvssWrQZ7Zvx1yZsk_QEnwq2dJSw8"
+              referrerPolicy="no-referrer"
             />
           </div>
           <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-surface-container-highest/60 backdrop-blur-xl rounded-full hidden lg:flex items-center justify-center p-8 text-center ring-1 ring-outline-variant/30">
