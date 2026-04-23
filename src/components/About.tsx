@@ -7,15 +7,17 @@ export default function About() {
             <div className="pt-12">
               <img
                 alt="Cinzia"
-                className="rounded-xl shadow-lg border border-outline-variant/20"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq2MwKRWW7FIXVQU29OZWrwT8bah_vcilRxg2x8QKOHI6I5Vz0xkyPX8GcQZwTbDb-Tzb9Ez7gZNaHUIY5HXkQCupqw90xXgAvRgeaYWcwaP4xbat74cgiHcNEX8oN1ZdTtqe2xiDxRaewTqPVdBDBJPb0uXK50d2lvHq9NiP2tcPHEJbUT0uZ7Cy7qr808JwaSOFIOwtjfFkPEM7U4-B-X2fzrms0E7Qzazkg4mylA9ETydkxy2lavI2s5LxYX0G8fu2-C3n1OjSS"
+                className="rounded-xl shadow-lg border border-outline-variant/20 w-full object-cover aspect-[3/4]"
+                src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/sign/Foto%20sito/WhatsApp%20Image%202026-04-15%20at%2015.48.16.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NzE2NTYwMS0yY2YzLTQzODUtOGE1Ni04ODdkZDI3MGY0OTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb3RvIHNpdG8vV2hhdHNBcHAgSW1hZ2UgMjAyNi0wNC0xNSBhdCAxNS40OC4xNi5qcGVnIiwiaWF0IjoxNzc2OTY1MzkwLCJleHAiOjE5MzQ2NDUzOTB9.hEGpE9h9ZSvkdwZ2iEFThRhq6ZuakU5uFRDL3kGIbeQ"
+                referrerPolicy="no-referrer"
               />
             </div>
             <div>
               <img
-                alt="Meditation detail"
-                className="rounded-xl shadow-lg mb-4 border border-outline-variant/20"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDngvm3YaTtYEmoBeiTUD00i_xf9z2I7La4X4QdNrR-y2Bt1M_UbBTdAy8BXK5I4ODzPoCawZmP8LLunS-o9hM6PFrpOON8gvGCwgDrTdjLBnxrOJ6ki9LGj0qmdJbWVLfHnDjzjeaP77d4TQu3uIqaI6JA8cDr-Q2HTuEdBKZr_tghsE-Rc4FHwuvUL7t1ERM26uXOybQcgBrr48DCxpjR94EIxz3KYboF48RoqYgKEsXWzJWAezPccm4333pWhI2t4B90ocPkfRcu"
+                alt="Cinzia practicing yoga"
+                className="rounded-xl shadow-lg mb-4 border border-outline-variant/20 w-full object-cover aspect-[3/4]"
+                src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/sign/Foto%20sito/WhatsApp%20Image%202026-04-15%20at%2015.47.37.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NzE2NTYwMS0yY2YzLTQzODUtOGE1Ni04ODdkZDI3MGY0OTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb3RvIHNpdG8vV2hhdHNBcHAgSW1hZ2UgMjAyNi0wNC0xNSBhdCAxNS40Ny4zNy5qcGVnIiwiaWF0IjoxNzc2OTY1NDI0LCJleHAiOjE5MzQ2NDU0MjR9.xVhWtliCoSXbxS_rhbXlQ4jejdL-s9kOfeqQ2JGkJd8"
+                referrerPolicy="no-referrer"
               />
               <div className="bg-primary p-6 rounded-xl text-on-primary leading-relaxed shadow-lg">
                 <p className="font-serif italic text-xl">"Lo yoga non è fare asana, è abitare se stessi."</p>

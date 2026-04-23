@@ -20,11 +20,12 @@ export default function Studio() {
             </div>
           </div>
           <div className="lg:col-span-7">
-            <div className="aspect-[16/9] rounded-xl overflow-hidden shadow-2xl relative border border-outline-variant/20">
+            <div className="rounded-xl overflow-hidden shadow-2xl relative border border-outline-variant/20">
               <img
-                alt="Studio Interior"
-                className="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCATM8b3ZB3YCpsZz4PKMucPvB57KGPXMfo2wCbGzHx8cWq4NifHCl_vkfdv_qeKWmtXNwwsg0gXdF2SQd7eS6q20yirMz8t5LEruk0hmJAUXwqyOmmIBp730bIhekdGFcyOaYD8mWE9fXagadKPkrSIWEAdMgSBFBUVqEZU0N1_dpNyOJAB6u5A9FT9IL3b-W2O5D_MNJoGBoXWfqL6M64LOZ_Ng1eloMNLOEt-Pc3F_CDwvkP8sc7ElzWWCMdAtayCeqKC9CaNsm"
+                alt="Parco dell'Acqua - Arcadia Lab"
+                className="w-full h-auto object-contain"
+                src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/sign/Foto%20sito/Parco%20dell%20acqua.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NzE2NTYwMS0yY2YzLTQzODUtOGE1Ni04ODdkZDI3MGY0OTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb3RvIHNpdG8vUGFyY28gZGVsbCBhY3F1YS5qcGciLCJpYXQiOjE3NzY5NjYwNzIsImV4cCI6MTkzNDY0NjA3Mn0.btjOrExqjHJaG8IbH5uhcZXmRaphDw3v7XL6MVOJYrg"
+                referrerPolicy="no-referrer"
               />
             </div>
           </div>
