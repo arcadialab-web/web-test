@@ -23,15 +23,20 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 w-full z-50 transition-all duration-700 ease-in-out ${
         isScrolled 
-          ? 'bg-surface/85 backdrop-blur-xl py-4 border-b border-outline-variant/20 shadow-sm' 
+          ? 'bg-surface/60 backdrop-blur-2xl py-4 border-b border-white/20 shadow-xl' 
           : 'bg-transparent py-8'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* LOGO */}
-        <a className="z-[60] relative hover:opacity-80 transition-opacity flex items-center" href="#">
+        <motion.a 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="z-[60] relative hover:opacity-80 transition-opacity flex items-center" 
+          href="#"
+        >
           <div className="relative w-16 md:w-20 h-10 flex justify-center items-center mr-2">
             <img 
               src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/public/Logo%20piattaforma/Logo%20senza%20scritta%20.png" 
@@ -42,28 +47,33 @@ export default function Navbar() {
           <span className="text-2xl font-serif italic text-primary tracking-tight">
             Arcadia Lab
           </span>
-        </a>
+        </motion.a>
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex gap-8 items-center">
             {navLinks.map((link) => (
-              <a
+              <motion.a
                 key={link.name}
                 href={link.href}
-                className="text-on-surface-variant font-label text-[11px] uppercase tracking-[0.2em] font-semibold hover:text-primary transition-colors duration-300 relative group"
+                whileHover={{ y: -2 }}
+                className="text-on-surface-variant font-label text-[11px] uppercase tracking-[0.2em] font-semibold hover:text-primary transition-all duration-300 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1.5 left-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-              </a>
+                <motion.span 
+                  className="absolute -bottom-1.5 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"
+                ></motion.span>
+              </motion.a>
             ))}
           </div>
-          <a 
+          <motion.a 
             href="#register" 
-            className="bg-primary text-on-primary px-6 py-2.5 rounded-sm text-xs uppercase tracking-widest font-bold hover:bg-opacity-90 hover:shadow-lg transition-all duration-300"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-primary text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold shadow-xl border-none hover:bg-opacity-90 transition-all"
           >
             Prenota
-          </a>
+          </motion.a>
         </div>
 
         {/* MOBILE TOGGLE ICON */}
@@ -120,7 +130,7 @@ export default function Navbar() {
                 <a
                   href="#register"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block bg-primary text-on-primary px-8 py-5 rounded-md text-sm uppercase tracking-[0.2em] font-bold w-full shadow-xl shadow-primary/10 active:scale-95 transition-transform"
+                  className="block bg-primary text-white px-8 py-5 rounded-full text-sm uppercase tracking-[0.2em] font-bold w-full shadow-2xl active:scale-95 transition-transform text-center"
                 >
                   Prenota la tua lezione
                 </a>

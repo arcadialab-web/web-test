@@ -1,27 +1,81 @@
+import { motion } from "framer-motion";
+
 export default function Workshops() {
   return (
-    <section className="py-32 bg-surface" id="workshops">
+    <section className="py-32 bg-surface overflow-hidden" id="workshops">
       <div className="container mx-auto px-6">
-        <div className="bg-primary rounded-2xl p-12 md:p-20 text-on-primary relative overflow-hidden shadow-2xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+          className="bg-primary rounded-[40px] p-12 md:p-24 text-on-primary relative overflow-hidden shadow-[0_40px_100px_-20px_rgba(181,106,86,0.3)]"
+        >
+          {/* Decorative background elements */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0]
+            }}
+            transition={{ repeat: Infinity, duration: 20 }}
+            className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"
+          />
+          
           <div className="relative z-10 max-w-2xl">
-            <span className="font-label tracking-[0.2em] uppercase text-xs opacity-80 block mb-6">Eventi Speciali</span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-8">Oltre le lezioni settimanali — Workshop domenicali</h2>
-            <p className="text-lg opacity-90 leading-relaxed mb-10 text-on-primary-container">
+            <motion.span 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 0.8, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="font-label tracking-[0.3em] uppercase text-xs block mb-8"
+            >
+              Eventi Speciali
+            </motion.span>
+            
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="text-4xl md:text-6xl font-serif mb-10 leading-tight"
+            >
+              Oltre le lezioni — <br />
+              <span className="italic opacity-80">Workshop domenicali</span>
+            </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="text-xl opacity-90 leading-relaxed mb-12 font-light"
+            >
               Approfondimenti mensili dedicati a temi specifici: meditazione profonda, chakra balance e tecniche avanzate di inversione. Un tempo dilatato per la tua crescita.
-            </p>
-            <button className="bg-surface text-primary px-10 py-4 rounded-md font-bold tracking-wide hover:bg-surface-container-lowest transition-all">
+            </motion.p>
+            
+            <motion.button 
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.98 }}
+              className="glass bg-white text-primary px-12 py-5 rounded-full font-bold tracking-widest uppercase text-xs shadow-2xl transition-all border-none"
+            >
               Calendario Workshop
-            </button>
+            </motion.button>
           </div>
-          <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-            <img
+
+          <motion.div 
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 0.3, x: 0 }}
+            transition={{ duration: 1.5 }}
+            className="absolute top-0 right-0 w-1/2 h-full hidden lg:block"
+          >
+            <motion.img
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 10 }}
               alt="Workshop atmosphere"
-              className="w-full h-full object-cover opacity-30 mix-blend-overlay"
+              className="w-full h-full object-cover mix-blend-overlay"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO0wl3tObgzBkeO2FZfOo7kNhKs2q4Wf95sOiJKthQEjeWuK_9yOa55kovnHMqJ7avEZM4gE5Kng-DjUnHeDjHKgfA8w9SAVTU42G9X-7r2-qVp5re6Ri0zgiQC-8DtzTsD1cjGR0gveCB17ypSyA8gksZZTm85garXjb95oK65Tr00xmt-Px7cBK7swMGQQeVX8qZSLIPBfGb6rSbQKsbT21DIQr6wj7A5BAIMa7qB3sDX2MkdoK69cYtXOgkhzYjr4zVgKFlldB6"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
+
