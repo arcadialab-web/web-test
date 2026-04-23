@@ -6,11 +6,11 @@ export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
 
-  // Parallax effects
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 300], [1, 1.1]);
+  // Parallax effects - softened for smoother transition and to avoid gaps
+  const y1 = useTransform(scrollY, [0, 800], [0, 150]);
+  const y2 = useTransform(scrollY, [0, 800], [0, -100]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const scale = useTransform(scrollY, [0, 400], [1, 1.05]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
