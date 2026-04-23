@@ -41,10 +41,10 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="glass-dark bg-secondary-container/10 p-8 rounded-3xl leading-relaxed shadow-xl border border-primary/20 relative overflow-hidden"
+                className="glass-dark bg-secondary-container/10 p-6 md:p-8 rounded-3xl leading-relaxed shadow-xl border border-primary/20 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl -mr-8 -mt-8" />
-                <p className="font-serif italic text-2xl relative z-10 text-primary">"Lo yoga non è fare asana, è abitare se stessi."</p>
+                <p className="font-serif italic text-xl md:text-2xl relative z-10 text-primary">"Lo yoga non è fare asana, è abitare se stessi."</p>
               </motion.div>
             </div>
           </div>

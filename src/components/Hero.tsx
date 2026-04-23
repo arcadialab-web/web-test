@@ -105,14 +105,15 @@ export default function Hero() {
 
         <motion.div 
           style={{ y: y1, opacity, scale }}
-          className="relative group perspective-container"
+          className="relative group lg:perspective-container"
         >
+          {/* Main Hero Image */}
           <motion.div 
             style={{ 
               rotateX: useTransform(springY, (v) => v * -0.2),
               rotateY: useTransform(springX, (v) => v * 0.2),
             }}
-            className="aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] border-4 border-white/30"
+            className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] border border-outline-variant/30 relative"
           >
             <motion.img
               alt="Yoga Session"
@@ -122,20 +123,30 @@ export default function Hero() {
             />
           </motion.div>
 
+          {/* Precise replication of the label from the image - Adjusted size and position for visibility */}
           <motion.div 
-            style={{ x: springX, y: useTransform(springY, (v) => v - 20) }}
-            className="absolute bottom-12 -left-8 w-44 h-44 bg-surface shadow-2xl rounded-3xl hidden lg:flex items-center justify-center p-6 text-center border border-primary/10"
+            style={{ 
+              x: useTransform(springX, (v) => v - 20), 
+              y: useTransform(springY, (v) => v + 20),
+              background: "radial-gradient(circle at 30% 30%, #e2ded5 0%, #c4bdb0 100%)",
+              opacity: 0.98
+            }}
+            className="absolute bottom-[5px] -left-12 w-48 h-48 md:w-52 md:h-52 rounded-full flex flex-col items-center justify-center p-8 text-center shadow-[0_15px_40px_rgba(0,0,0,0.1)] z-20 backdrop-blur-md border border-white/40 group/label"
           >
-            <p className="text-[10px] font-label tracking-[0.2em] uppercase text-primary font-black leading-relaxed">Senti il battito della terra</p>
+            <p className="text-[9px] md:text-[10px] font-label tracking-[0.4em] uppercase text-on-surface-variant/70 font-semibold leading-relaxed">
+              Senti il battito <br />
+              della terra
+            </p>
           </motion.div>
 
-          {/* Floating Element 2 */}
+          {/* Decorative Floating Element */}
           <motion.div 
             style={{ y: y2, x: useTransform(springX, (v) => -v * 0.8) }}
-            className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 backdrop-blur-xl rounded-full border border-white/20 -z-10 animate-float"
+            className="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 backdrop-blur-xl rounded-full border border-white/20 -z-10 animate-float"
           />
         </motion.div>
       </div>
+
 
       {/* Storytelling line */}
       <motion.div 
