@@ -54,7 +54,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 py-10 w-full gap-6 border-t border-outline-variant/20">
           <div className="flex flex-col space-y-1 text-center md:text-left">
             <p className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70">
-              © {new Date().getFullYear()} Arcadia Lab. Created by Cinzia.
+              © {new Date().getFullYear()} Arcadia Lab.
             </p>
             <p className="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
               P.IVA: 04712510983

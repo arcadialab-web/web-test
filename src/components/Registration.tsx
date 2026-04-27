@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Registration() {
   return (
     <section className="py-32 bg-surface" id="register">
@@ -96,6 +98,16 @@ export default function Registration() {
                   </div>
                   <span className="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors">
                     Accetto il pagamento extra della tessera associativa/assicurativa annuale di € 20.
+                  </span>
+                </label>
+
+                <label className="flex items-start gap-4 cursor-pointer group">
+                  <div className="relative flex items-center justify-center mt-0.5">
+                    <input type="checkbox" required className="peer appearance-none w-5 h-5 border border-outline-variant rounded-sm checked:bg-primary checked:border-primary transition-colors cursor-pointer" />
+                    <span className="material-symbols-outlined absolute text-white text-sm opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity font-bold">check</span>
+                  </div>
+                  <span className="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors">
+                    Ho letto e accetto la <Link to="/privacy-policy" className="text-primary hover:underline underline-offset-4">Privacy Policy</Link> e i <Link to="/terms-of-service" className="text-primary hover:underline underline-offset-4">Termini e Condizioni</Link> *
                   </span>
                 </label>
               </div>
