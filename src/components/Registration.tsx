@@ -1,6 +1,65 @@
+import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Registration() {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('https://hook.eu1.make.com/ghwzhmg4ehib5enfeegc2qcghqqxdx48', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          submittedAt: new Date().toISOString(),
+          source: window.location.href
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        throw new Error('Errore durante l\'invio. Riprova più tardi.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Si è verificato un errore imprevisto.');
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <section className="py-32 bg-surface" id="register">
+        <div className="container mx-auto px-6 max-w-2xl text-center">
+          <div className="bg-surface-container-lowest p-12 rounded-2xl shadow-xl border border-outline-variant/20">
+            <span className="material-symbols-outlined text-6xl text-primary mb-6 animate-bounce">check_circle</span>
+            <h2 className="text-4xl font-serif italic mb-6">Grazie per la tua richiesta!</h2>
+            <p className="text-lg text-on-surface-variant leading-relaxed mb-8">
+              Abbiamo ricevuto i tuoi dati correttamente. Ti contatteremo via email o telefono entro le prossime 24-48 ore per confermare la tua iscrizione.
+            </p>
+            <button 
+              onClick={() => setStatus('idle')}
+              className="text-primary font-bold hover:underline underline-offset-4"
+            >
+              Invia un'altra richiesta
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-32 bg-surface" id="register">
       <div className="container mx-auto px-6">
@@ -35,34 +94,34 @@ export default function Registration() {
           </div>
 
           <div className="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-2xl shadow-xl border border-outline-variant/20 relative z-10">
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-8" onSubmit={handleSubmit}>
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="flex flex-col gap-2 relative group">
                   <label htmlFor="nome" className="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold transition-colors group-focus-within:text-primary">Nome *</label>
-                  <input id="nome" type="text" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="Il tuo nome" />
+                  <input id="nome" name="nome" type="text" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="Il tuo nome" />
                 </div>
                 <div className="flex flex-col gap-2 relative group">
                   <label htmlFor="cognome" className="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold transition-colors group-focus-within:text-primary">Cognome *</label>
-                  <input id="cognome" type="text" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="Il tuo cognome" />
+                  <input id="cognome" name="cognome" type="text" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="Il tuo cognome" />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="flex flex-col gap-2 relative group">
                   <label htmlFor="email" className="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold transition-colors group-focus-within:text-primary">Email *</label>
-                  <input id="email" type="email" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="latua@email.com" />
+                  <input id="email" name="email" type="email" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="latua@email.com" />
                 </div>
                 <div className="flex flex-col gap-2 relative group">
                   <label htmlFor="telefono" className="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold transition-colors group-focus-within:text-primary">Telefono *</label>
-                  <input id="telefono" type="tel" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="+39 000 0000000" />
+                  <input id="telefono" name="telefono" type="tel" required className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full" placeholder="+39 000 0000000" />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2 relative group">
                 <label htmlFor="abbonamento" className="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold transition-colors group-focus-within:text-primary">Abbonamento richiesto *</label>
                 <div className="relative">
-                  <select id="abbonamento" required defaultValue="" className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface appearance-none w-full cursor-pointer rounded-none">
+                  <select id="abbonamento" name="abbonamento" required defaultValue="" className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface appearance-none w-full cursor-pointer rounded-none">
                     <option value="" disabled>Seleziona un'opzione...</option>
                     <option value="coupon">Coupon — 10 lezioni (€ 120)</option>
                     <option value="mensile_1x">Mensile 1× — 1 volta a settimana (€ 44)</option>
@@ -77,13 +136,13 @@ export default function Registration() {
 
               <div className="flex flex-col gap-2 relative group">
                 <label htmlFor="note" className="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold transition-colors group-focus-within:text-primary">Note aggiuntive (Esperienza pregressa, infortuni, etc.)</label>
-                <textarea id="note" rows={3} className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full resize-none" placeholder="Scrivi qui eventuali comunicazioni..."></textarea>
+                <textarea id="note" name="note" rows={3} className="bg-transparent border-b border-outline-variant focus:border-primary transition-colors py-2 outline-none text-on-surface w-full resize-none" placeholder="Scrivi qui eventuali comunicazioni..."></textarea>
               </div>
 
               <div className="space-y-5 pt-8 border-t border-outline-variant/20">
                 <label className="flex items-start gap-4 cursor-pointer group">
                   <div className="relative flex items-center justify-center mt-0.5">
-                    <input type="checkbox" required className="peer appearance-none w-5 h-5 border border-outline-variant rounded-sm checked:bg-primary checked:border-primary transition-colors cursor-pointer" />
+                    <input type="checkbox" name="accetto_certificato" required className="peer appearance-none w-5 h-5 border border-outline-variant rounded-sm checked:bg-primary checked:border-primary transition-colors cursor-pointer" />
                     <span className="material-symbols-outlined absolute text-white text-sm opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity font-bold">check</span>
                   </div>
                   <span className="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors">
@@ -93,7 +152,7 @@ export default function Registration() {
                 
                 <label className="flex items-start gap-4 cursor-pointer group">
                   <div className="relative flex items-center justify-center mt-0.5">
-                    <input type="checkbox" required className="peer appearance-none w-5 h-5 border border-outline-variant rounded-sm checked:bg-primary checked:border-primary transition-colors cursor-pointer" />
+                    <input type="checkbox" name="accetto_tessera" required className="peer appearance-none w-5 h-5 border border-outline-variant rounded-sm checked:bg-primary checked:border-primary transition-colors cursor-pointer" />
                     <span className="material-symbols-outlined absolute text-white text-sm opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity font-bold">check</span>
                   </div>
                   <span className="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors">
@@ -103,7 +162,7 @@ export default function Registration() {
 
                 <label className="flex items-start gap-4 cursor-pointer group">
                   <div className="relative flex items-center justify-center mt-0.5">
-                    <input type="checkbox" required className="peer appearance-none w-5 h-5 border border-outline-variant rounded-sm checked:bg-primary checked:border-primary transition-colors cursor-pointer" />
+                    <input type="checkbox" name="accetto_privacy" required className="peer appearance-none w-5 h-5 border border-outline-variant rounded-sm checked:bg-primary checked:border-primary transition-colors cursor-pointer" />
                     <span className="material-symbols-outlined absolute text-white text-sm opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity font-bold">check</span>
                   </div>
                   <span className="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors">
@@ -112,8 +171,25 @@ export default function Registration() {
                 </label>
               </div>
 
-              <button type="submit" className="w-full py-4 bg-primary text-on-primary rounded-md font-bold mt-8 shadow-xl shadow-primary/20 hover:bg-opacity-90 transition-all duration-300">
-                Invia Richiesta
+              {status === 'error' && (
+                <div className="p-4 bg-red-50 text-red-600 text-sm rounded-md border border-red-100">
+                  {errorMessage}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                disabled={status === 'loading'}
+                className={`w-full py-4 bg-primary text-on-primary rounded-md font-bold mt-8 shadow-xl shadow-primary/20 hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center gap-3 ${status === 'loading' ? 'opacity-70 cursor-not-allowed' : ''}`}
+              >
+                {status === 'loading' ? (
+                  <>
+                    <span className="animate-spin h-5 w-5 border-2 border-white/30 border-t-white rounded-full"></span>
+                    Invio in corso...
+                  </>
+                ) : (
+                  'Invia Richiesta'
+                )}
               </button>
 
             </form>
