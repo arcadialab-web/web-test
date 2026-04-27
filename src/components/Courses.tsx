@@ -97,8 +97,8 @@ export default function Courses() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-sm text-on-surface-variant italic opacity-60">
-            Nessuna lezione nei mesi di luglio e agosto.
+          <p className="text-sm text-on-surface-variant italic opacity-80">
+            *Nessuna lezione in luglio e agosto.
           </p>
         </motion.div>
       </div>

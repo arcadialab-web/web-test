@@ -1,8 +1,11 @@
+import { Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="bg-surface-container w-full mt-24 border-t border-outline-variant/20" id="contacts">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20 px-6 md:px-12 pt-20 pb-16">
+        <div className="max-w-4xl px-6 md:px-12 pt-20 pb-16">
           <div className="space-y-12">
             <div>
               <h2 className="text-5xl font-serif italic text-primary mb-4">Arcadia Lab</h2>
@@ -21,38 +24,46 @@ export default function Footer() {
               </div>
               <div className="space-y-4">
                 <h4 className="font-label uppercase text-xs tracking-widest font-bold text-on-surface">Contatti</h4>
-                <p className="text-on-surface-variant leading-relaxed">
-                  346 677 0909<br/>
-                  <a href="mailto:yogacinziayoga@gmail.com" className="hover:text-primary transition-colors">yogacinziayoga@gmail.com</a>
-                </p>
-                <div className="flex gap-4 pt-2">
-                  <a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">@arcadialab.cinzia</a>
+                <div className="space-y-2">
+                  <div className="text-on-surface-variant leading-relaxed">
+                    <a href="tel:+393466770909" className="hover:text-primary transition-colors flex items-center gap-2">
+                      <span className="material-symbols-outlined text-sm">call</span>
+                      346 677 0909
+                    </a>
+                    <a href="mailto:yogacinziayoga@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2 mt-1">
+                      <span className="material-symbols-outlined text-sm">mail</span>
+                      yogacinziayoga@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex gap-4 pt-2">
+                    <a 
+                      href="https://www.instagram.com/arcadialab.cinzia/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-on-surface-variant hover:text-primary transition-all flex items-center gap-2 group"
+                    >
+                      <Instagram size={20} className="group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-medium">@arcadialab.cinzia</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center lg:pt-4">
-            <div className="space-y-8 bg-surface-container-lowest p-10 rounded-2xl border border-outline-variant/20 shadow-sm">
-              <h3 className="text-2xl font-serif italic text-primary">Siamo qui per te.</h3>
-              <p className="text-lg text-on-surface-variant leading-relaxed">
-                Hai domande sui corsi o sugli abbonamenti? Scrivici — risponderemo con piacere.
-              </p>
-              <a 
-                href="mailto:yogacinziayoga@gmail.com" 
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 bg-primary text-on-primary rounded-md font-bold uppercase tracking-widest text-xs hover:bg-opacity-90 transition-all shadow-lg shadow-primary/20"
-              >
-                Invia un messaggio
-              </a>
-            </div>
-          </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 py-10 w-full gap-6 border-t border-outline-variant/20">
-          <p className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70">
-            © {new Date().getFullYear()} Arcadia Lab. Created by Cinzia.
-          </p>
-          <div className="flex gap-8">
-            <a className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70 hover:text-primary transition-colors" href="#">Privacy Policy</a>
-            <a className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70 hover:text-primary transition-colors" href="#">Terms of Service</a>
+          <div className="flex flex-col space-y-1 text-center md:text-left">
+            <p className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70">
+              © {new Date().getFullYear()} Arcadia Lab. Created by Cinzia.
+            </p>
+            <p className="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+              P.IVA: 04712510983
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+            <Link className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70 hover:text-primary transition-colors" to="/privacy-policy">Privacy Policy</Link>
+            <Link className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70 hover:text-primary transition-colors" to="/terms-of-service">Terms of Service</Link>
+            <Link className="font-label text-xs tracking-widest uppercase text-on-surface-variant/70 hover:text-primary transition-colors" to="/cookie-policy">Cookie Policy</Link>
           </div>
         </div>
       </div>

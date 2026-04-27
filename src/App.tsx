@@ -1,34 +1,22 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Philosophy from './components/Philosophy';
-import About from './components/About';
-import Studio from './components/Studio';
-import Courses from './components/Courses';
-import Workshops from './components/Workshops';
-import Pricing from './components/Pricing';
-import Testimonials from './components/Testimonials';
-import Registration from './components/Registration';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
+import CookieBanner from './components/CookieBanner';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Philosophy />
-      <About />
-      <Studio />
-      <Courses />
-      <Workshops />
-      <Pricing />
-      <Testimonials />
-      <Registration />
-      <Footer />
-      
-      {/* FAB for quick booking */}
-      <a href="#register" className="fixed bottom-10 right-10 z-40 bg-primary text-on-primary w-16 h-16 rounded-full flex items-center justify-center shadow-xl hover:scale-105 hover:bg-opacity-90 transition-all duration-300 active:scale-95">
-        <span className="material-symbols-outlined">calendar_today</span>
-      </a>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+      </Routes>
+      <CookieBanner />
+    </Router>
   );
 }

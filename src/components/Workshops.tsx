@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Calendar } from "lucide-react";
 
 export default function Workshops() {
   return (
@@ -53,11 +54,13 @@ export default function Workshops() {
             <motion.button 
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.98 }}
-              className="glass bg-white text-primary px-12 py-5 rounded-full font-bold tracking-widest uppercase text-xs shadow-2xl transition-all border-none"
+              className="bg-white text-primary px-10 md:px-14 py-5 rounded-full font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] transition-all flex items-center gap-3 group border-none"
             >
-              Calendario Workshop
+              <span>Calendario Workshop</span>
+              <Calendar size={18} className="group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </div>
+
 
           <motion.div 
             initial={{ opacity: 0, x: 100 }}

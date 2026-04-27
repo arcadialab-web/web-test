@@ -80,7 +80,7 @@ export default function Pricing() {
           </div>
           <div className="p-6 bg-surface-container-low border border-outline-variant/30 rounded-lg text-sm text-on-surface-variant leading-relaxed">
             <p>
-              <strong className="text-primary font-serif">Tessera associativa annuale — € 20:</strong> Obbligatoria per l'iscrizione. Include copertura assicurativa. È richiesto un certificato di buona salute. Scade automaticamente al termine dell'anno associativo.
+              <strong className="text-primary font-serif">Tessera associativa annuale — € 20:</strong> Obbligatoria per l'iscrizione. Include copertura assicurativa. Scade automaticamente al termine dell'anno associativo. È richiesto un certificato di buona salute.
             </p>
           </div>
         </div>
