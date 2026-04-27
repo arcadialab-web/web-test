@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,12 +17,23 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Studio', href: '#studio' },
-    { name: 'Chi sono', href: '#chi-sono' },
-    { name: 'Corsi', href: '#courses' },
-    { name: 'Workshop', href: '#workshops' },
-    { name: 'Abbonamenti', href: '#pricing' },
+    { name: 'Studio', href: '/#studio', id: 'studio' },
+    { name: 'Chi sono', href: '/#chi-sono', id: 'chi-sono' },
+    { name: 'Corsi', href: '/#courses', id: 'courses' },
+    { name: 'Workshop', href: '/#workshops', id: 'workshops' },
+    { name: 'Abbonamenti', href: '/#pricing', id: 'pricing' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
     <nav
@@ -31,23 +45,24 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* LOGO */}
-        <motion.a 
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="z-[60] relative hover:opacity-80 transition-opacity flex items-center" 
-          href="#"
+          className="z-[60] relative hover:opacity-80 transition-opacity"
         >
-          <div className="relative w-16 md:w-20 h-10 flex justify-center items-center mr-2">
-            <img 
-              src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/public/Logo%20piattaforma/Logo%20senza%20scritta%20.png" 
-              alt="Punto Arcadia Lab" 
-              className="absolute h-[70px] md:h-[90px] object-contain drop-shadow-md max-w-none" 
-            />
-          </div>
-          <span className="text-2xl font-serif italic text-primary tracking-tight">
-            Arcadia Lab
-          </span>
-        </motion.a>
+          <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
+            <div className="relative w-16 md:w-20 h-10 flex justify-center items-center mr-2">
+              <img 
+                src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/public/Logo%20piattaforma/Logo%20senza%20scritta%20.png" 
+                alt="Punto Arcadia Lab" 
+                className="absolute h-[70px] md:h-[90px] object-contain drop-shadow-md max-w-none" 
+              />
+            </div>
+            <span className="text-2xl font-serif italic text-primary tracking-tight">
+              Arcadia Lab
+            </span>
+          </Link>
+        </motion.div>
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex items-center gap-10">
@@ -56,6 +71,7 @@ export default function Navbar() {
               <motion.a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.id)}
                 whileHover={{ y: -2 }}
                 className="text-on-surface-variant font-label text-[11px] uppercase tracking-[0.2em] font-semibold hover:text-primary transition-all duration-300 relative group"
               >
@@ -66,14 +82,19 @@ export default function Navbar() {
               </motion.a>
             ))}
           </div>
-          <motion.a 
-            href="#register" 
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-primary text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold shadow-xl border-none hover:bg-opacity-90 transition-all"
+          <Link 
+            to="/#register" 
+            onClick={(e) => handleNavClick(e, 'register')}
+            className="flex"
           >
-            Prenota
-          </motion.a>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-primary text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold shadow-xl border-none hover:bg-opacity-90 transition-all cursor-pointer"
+            >
+              Prenota
+            </motion.div>
+          </Link>
         </div>
 
         {/* MOBILE TOGGLE ICON */}
@@ -113,7 +134,7 @@ export default function Navbar() {
                   transition={{ delay: i * 0.05 + 0.1, duration: 0.4, ease: "easeOut" }}
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.id)}
                   className="text-4xl font-serif italic text-on-surface hover:text-primary transition-colors duration-300"
                 >
                   {link.name}
@@ -127,13 +148,13 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.05 + 0.1, duration: 0.4 }}
                 className="mt-10"
               >
-                <a
-                  href="#register"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <Link
+                  to="/#register"
+                  onClick={(e) => handleNavClick(e, 'register')}
                   className="block bg-primary text-white px-8 py-5 rounded-full text-sm uppercase tracking-[0.2em] font-bold w-full shadow-2xl active:scale-95 transition-transform text-center"
                 >
                   Prenota la tua lezione
-                </a>
+                </Link>
               </motion.div>
             </div>
             
