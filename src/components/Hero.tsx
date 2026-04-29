@@ -76,7 +76,7 @@ export default function Hero() {
             transition={{ delay: 1, duration: 1 }}
             className="text-xl md:text-2xl text-on-surface-variant max-w-lg font-light leading-relaxed"
           >
-            Accademia di Yoga — Percorsi di forza, equilibrio e consapevolezza per ogni corpo e ogni momento.
+            Accademia di Yoga — Percorsi che trasformano il corpo, regolano il respiro e riportano chiarezza dentro e fuori dal tappetino
           </motion.p>
 
           <motion.div 
@@ -134,8 +134,8 @@ export default function Hero() {
             className="absolute bottom-[5px] -left-12 w-48 h-48 md:w-52 md:h-52 rounded-full flex flex-col items-center justify-center p-8 text-center shadow-[0_15px_40px_rgba(0,0,0,0.1)] z-20 backdrop-blur-md border border-white/40 group/label"
           >
             <p className="text-[9px] md:text-[10px] font-label tracking-[0.4em] uppercase text-on-surface-variant/70 font-semibold leading-relaxed">
-              Senti il battito <br />
-              della terra
+              Elasticità, Forza <br />
+              e Equilibrio
             </p>
           </motion.div>
 

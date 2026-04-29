@@ -12,9 +12,9 @@ export default function Philosophy() {
           className="max-w-4xl mx-auto text-center mb-24"
         >
           <span className="text-primary font-label tracking-[0.2em] uppercase text-sm block mb-6">Filosofia</span>
-          <h2 className="text-4xl md:text-5xl font-serif mb-8 italic">Arcadia è... Un luogo dell'anima.</h2>
+          <h2 className="text-4xl md:text-5xl font-serif mb-8 italic">Arcadia è un luogo di presenza.</h2>
           <p className="text-lg text-on-surface-variant leading-relaxed">
-            Non è solo uno studio di yoga, ma uno spazio protetto dove la pratica diventa rito. Crediamo nel potere trasformativo del movimento consapevole.
+            Qui il movimento diventa ascolto, il respiro diventa equilibrio, la pratica diventa trasformazione.
           </p>
         </motion.div>
         
@@ -23,17 +23,17 @@ export default function Philosophy() {
             { 
               icon: "auto_awesome", 
               title: "Autenticità", 
-              desc: "Praticare senza maschere, onorando il proprio corpo e il proprio limite in ogni respiro." 
+              desc: "Onorare il proprio corpo in ogni gesto, lasciando che il limite diventi guida" 
             },
             { 
               icon: "self_improvement", 
               title: "Presenza", 
-              desc: "Essere qui, ora. La mente si calma e il corpo trova la sua espressione più vera." 
+              desc: "Essere qui, nel movimento che si apre e nel respiro che guida" 
             },
             { 
-              icon: "favorite", 
-              title: "Gentilezza", 
-              desc: "Un approccio non violento verso se stessi, coltivando compassione e ascolto profondo." 
+              icon: "bolt", 
+              title: "Movimento", 
+              desc: "Rinforzare i muscoli, risvegliare l’energia, trovare stabilità attraverso il movimento" 
             }
           ].map((item, i) => (
             <motion.div 

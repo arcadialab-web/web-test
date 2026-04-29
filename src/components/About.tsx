@@ -44,7 +44,7 @@ export default function About() {
                 className="glass-dark bg-secondary-container/10 p-6 md:p-8 rounded-3xl leading-relaxed shadow-xl border border-primary/20 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl -mr-8 -mt-8" />
-                <p className="font-serif italic text-xl md:text-2xl relative z-10 text-primary">"Lo yoga non è fare asana, è abitare se stessi."</p>
+                <p className="font-serif italic text-xl md:text-2xl relative z-10 text-primary">"Lo yoga è un modo di abitare il corpo con attenzione, respiro e misura."</p>
               </motion.div>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function About() {
               La mia filosofia di insegnamento non si ferma alla tecnica; cerco di trasmettere l'esperienza del corpo come tempio e la mente come alleata. Ogni mia lezione è un invito a scoprire la propria forza interiore in modo gentile ma risoluto.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              {['RYT 500+', 'Vinyasa Master', 'Meditation Guide'].map((tag, i) => (
+              {['RYT 800+', 'Vinyasa Master', 'Meditation Guide', 'Katonah Yoga'].map((tag, i) => (
                 <motion.span 
                   key={tag}
                   initial={{ opacity: 0, y: 10 }}
