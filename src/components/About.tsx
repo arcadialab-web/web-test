@@ -56,15 +56,40 @@ export default function About() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="space-y-8 order-1 lg:order-2"
         >
-          <h2 className="text-4xl font-serif italic mb-6">Ciao, sono Cinzia.</h2>
+          <span className="text-primary font-label tracking-[0.2em] uppercase text-sm block mb-2">Chi sono</span>
+          <h2 className="text-4xl md:text-5xl font-serif italic mb-6">Ciao, sono Cinzia.</h2>
           <div className="space-y-6 text-on-surface-variant leading-relaxed">
-            <p>
-              Con oltre 800 ore di formazione certificata, ho dedicato la mia vita allo studio del movimento e dell'anima. La mia pratica si radica nel Vinyasa Yoga, un flusso dinamico che unisce respiro e gesto.
+            <p className="text-lg">
+              Sono un'insegnante di Yoga con più di 800 ore di formazione certificata e una solida specializzazione in Vinyasa Yoga e in Katonah Yoga.
             </p>
             <p>
-              La mia filosofia di insegnamento non si ferma alla tecnica; cerco di trasmettere l'esperienza del corpo come tempio e la mente come alleata. Ogni mia lezione è un invito a scoprire la propria forza interiore in modo gentile ma risoluto.
+              Ho approfondito anche pratiche dedicate alla terza età, al movimento consapevole e alla costruzione di forza ed elasticità in ogni fase della vita.
             </p>
-            <div className="flex flex-wrap gap-4 pt-4">
+
+            <div className="pt-6 space-y-4">
+              <h3 className="font-label text-xs uppercase tracking-widest font-bold text-on-surface">Esperienze significative:</h3>
+              <ul className="space-y-3">
+                {[
+                  "UISP – Unione Italiana Sport per Tutti",
+                  "Palestra Starter – Iseo",
+                  "Sport al Parco – Comune di Brescia",
+                  "Fondazione Pasotti Cottinelli – RSA"
+                ].map((exp, i) => (
+                  <motion.li 
+                    key={i}
+                    initial={{ opacity: 0, x: 10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 + (i * 0.1) }}
+                    className="flex items-center gap-3 text-sm md:text-base group"
+                  >
+                    <span className="material-symbols-outlined text-primary text-lg group-hover:scale-120 transition-transform">verified</span>
+                    <span>{exp}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-6">
               {['RYT 800+', 'Vinyasa Master', 'Meditation Guide', 'Katonah Yoga'].map((tag, i) => (
                 <motion.span 
                   key={tag}

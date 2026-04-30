@@ -118,7 +118,7 @@ export default function Hero() {
             <motion.img
               alt="Yoga Session"
               className="w-full h-full object-cover"
-              src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/sign/Foto%20sito/WhatsApp%20Image%202026-04-15%20at%2015.49.11.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NzE2NTYwMS0yY2YzLTQzODUtOGE1Ni04ODdkZDI3MGY0OTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb3RvIHNpdG8vV2hhdHNBcHAgSW1hZ2UgMjAyNi0wNC0xNSBhdCAxNS40OS4xMS5qcGVnIiwiaWF0IjoxNzc2OTY1MTE3LCJleHAiOjE5MzQ2NDUxMTd9.NX_B1I1shHDiTgbvssWrQZ7Zvx1yZsk_QEnwq2dJSw8"
+              src="https://fnvchbtcytugkrtnrvyj.supabase.co/storage/v1/object/sign/Foto%20sito/sito.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NzE2NTYwMS0yY2YzLTQzODUtOGE1Ni04ODdkZDI3MGY0OTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJGb3RvIHNpdG8vc2l0by53ZWJwIiwiaWF0IjoxNzc3NTM2NDg5LCJleHAiOjI3MjM2MTY0ODl9.FXMGiOxz81zw03squQ7WoP2-eHYnz8Mn7YsBrUnrGmQ"
               referrerPolicy="no-referrer"
             />
           </motion.div>
